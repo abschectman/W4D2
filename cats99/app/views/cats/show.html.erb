@@ -1,0 +1,19 @@
+<h1>Our cat</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th colspan = 2 ><%= @cat.name.capitalize %></th>
+  </tr>
+  </thead>
+
+  <tbody>
+    <% @data.each do |k,v| %>
+    <tr>
+      <td><%= k %></td>
+      <td><%= v %></td>
+    </tr>
+    <% end %>
+  </tbody>
+
+</table>

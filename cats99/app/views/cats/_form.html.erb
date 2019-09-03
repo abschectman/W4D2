@@ -1,0 +1,47 @@
+<% if edit %>
+  <% action = cat_url(cat)  %>
+<% name = cat.name %>
+<% birth_date = cat.birth_date %>
+<% color = cat.color %>
+<% sex = cat.sex %>
+<% description = cat.description %>
+<% else %>
+<% action = cats_url %>
+
+<% end %>
+
+
+<h2>Cat is sick, fix it up!!</h2>
+<form action="<%= action %>" method="POST">
+<% if edit %>
+<input type="hidden" name="_method" value="PATCH">
+<% end %>
+
+<label for="name">name</label>
+<input type="text" id="name" name="cat[name]" value="<%= name %>">
+
+<label for="birth_date">birthday</label>
+<input type="date" id="birth_date" name="cat[birth_date]" value="<%= birth_date %>">
+
+<label for="color">color</label>
+
+<select>
+  <option id="color" name="cat[color]" value="<%= color %>" selected disabled><%= color ? color : "Select a color" %></option>
+  <option id="color" value="black" name="cat[color]">Black</option>
+  <option id="color" value="white" name="cat[color]">White</option>
+  <option id="color" value="orange" name="cat[color]">Orange</option>
+  <option id="color" value="grey" name="cat[color]">Grey</option>
+</select>
+
+<label for="sex">sex</label>
+<input type="radio" id="sex" name="cat[sex]" value="M" checked="<%= sex == "M" ? "checked" : "" %>" > Male
+<input type="radio" id="sex" name="cat[sex]" value="F" checked="<%= sex == "F" ? "checked" : "" %>"> Female<br>
+
+<label for="description">description</label>
+<input type="textarea" id="description" value="<%= description %>" name="cat[description]">
+
+
+<input type="submit" value="abracadabra">
+
+
+</form>
